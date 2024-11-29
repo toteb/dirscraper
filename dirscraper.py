@@ -6,7 +6,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def regex(content):
-    pattern = "(\"|')(\/[\w\d?\/&=#.!:_-]{1,})(\"|')"
+    pattern = r"(\"|')(\/[\\\w\d?\/&=#.!:_-]{1,})(\"|')"
     matches = re.findall(pattern, content)
     response = ""
     i = 0
@@ -16,9 +16,9 @@ def regex(content):
             response += match[1]
         else:
             response += match[1] + "\n"
-    return(response)
-print("     _ _                              _____      \n  __| (_)_ __ ___  ___ _ __ __ _ _ __|___ / _ __ \n / _` | | '__/ __|/ __| '__/ _` | '_ \ |_ \| '__|\n| (_| | | |  \__ \ (__| | | (_| | |_) |__) | |   \n \__,_|_|_|  |___/\___|_|  \__,_| .__/____/|_|   \n                                |_|\n\n                        ~Cillian Collins\nOutput:")
+    return response
 
+print(r"DirScraper")
 parser = argparse.ArgumentParser(description='Extract GET parameters from javascript files.')
 parser.add_argument('-u', help='URL of the website to scan.')
 parser.add_argument('-o', help='Output file (for results).', nargs="?")
