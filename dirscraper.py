@@ -18,7 +18,6 @@ def regex(content):
             response += match[1] + "\n"
     return response
 
-print(r"DirScraper")
 parser = argparse.ArgumentParser(description='Extract GET parameters from javascript files.')
 parser.add_argument('-u', help='URL of the website to scan.')
 parser.add_argument('-o', help='Output file (for results).', nargs="?")
